@@ -1,0 +1,31 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use 5.010;
+
+use DBIx::Class::Schema::Loader qw[make_schema_at];
+
+unless ($ENV{DB_NAME} && $ENV{DB_USER} && $ENV{DB_PASS}) {
+  die "You must set DB_NAME, DB_USER and DB_PASS\n";
+}
+
+make_schema_at(
+    'MT::Schema',
+    {
+    #  debug => 1,
+      dump_directory => './lib',
+      components => [q{InflateColumn::DateTime}],
+      moniker_map => \&translate,
+     },
+    [ "dbi:mysql:dbname=$ENV{DB_NAME}",$ENV{DB_USER}, $ENV{DB_PASS}, ],
+);
+
+sub translate {
+  my $default = $_[1];
+  print "Changing $default into ";
+  $default =~ s/^Mt//;
+  say $default;
+
+  return $default;
+}
