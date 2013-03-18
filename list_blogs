@@ -1,0 +1,16 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use 5.010;
+
+use lib 'lib';
+use MT::Schema;
+
+my $sch = MT::Schema->connect("dbi:mysql:database=$ENV{DB_NAME}",
+                              $ENV{DB_USER}, $ENV{DB_PASS});
+
+my $blog_rs = $sch->resultset('Blog');
+foreach ($blog_rs->all) {
+  say $_->name, ' (', $_->comments->count, ')';
+}

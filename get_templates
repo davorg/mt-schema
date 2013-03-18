@@ -1,0 +1,19 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use 5.010;
+
+use MT::Schema;
+
+my $sch = MT::Schema->connect("dbi:mysql:database=$ENV{DB_NAME}",
+                              $ENV{DB_USER}, $ENV{DB_PASS})
+  or die;
+
+my $tmpl_rs = $sch->resultset('Template');
+
+foreach ($tmpl_rs->search({ template_blog_id => 0 })) {
+  my $name = $_->name;
+  $name =~ s/\W/_/g;
+  say $_->type, '/', "$name.tmpl";
+}
