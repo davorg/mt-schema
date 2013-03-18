@@ -37,149 +37,164 @@ __PACKAGE__->table("mt_category");
 
 =head2 category_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 category_allow_pings
 
+  accessor: 'allow_pings'
   data_type: 'tinyint'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 1
 
 =head2 category_author_id
 
+  accessor: 'author_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 category_basename
 
+  accessor: 'basename'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 category_blog_id
 
+  accessor: 'blog_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 category_class
 
+  accessor: 'class'
   data_type: 'varchar'
-  is_auto_increment: 1
+  default_value: 'category'
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 category_created_by
 
+  accessor: 'created_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 category_created_on
 
-  data_type: 'timestamp'
+  accessor: 'created_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 category_description
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'description'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 category_label
 
+  accessor: 'label'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [100,0]
+  size: 100
 
 =head2 category_modified_by
 
+  accessor: 'modified_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 category_modified_on
 
-  data_type: 'timestamp'
+  accessor: 'modified_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 category_parent
 
+  accessor: 'parent'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 1
 
 =head2 category_ping_urls
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'ping_urls'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =cut
 
 __PACKAGE__->add_columns(
   "category_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "id",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "category_allow_pings",
-  { data_type => "tinyint", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "allow_pings",
+    data_type     => "tinyint",
+    default_value => 0,
+    is_nullable   => 1,
+  },
   "category_author_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "author_id", data_type => "integer", is_nullable => 1 },
   "category_basename",
   {
+    accessor => "basename",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 1,
-    size => [255, 0],
+    size => 255,
   },
   "category_blog_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "blog_id", data_type => "integer", is_nullable => 0 },
   "category_class",
   {
+    accessor => "class",
     data_type => "varchar",
-    is_auto_increment => 1,
+    default_value => "category",
     is_nullable => 1,
-    size => [255, 0],
+    size => 255,
   },
   "category_created_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "created_by", data_type => "integer", is_nullable => 1 },
   "category_created_on",
   {
-    data_type => "timestamp",
+    accessor => "created_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "category_description",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "description", data_type => "mediumtext", is_nullable => 1 },
   "category_label",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 0,
-    size => [100, 0],
-  },
+  { accessor => "label", data_type => "varchar", is_nullable => 0, size => 100 },
   "category_modified_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "modified_by", data_type => "integer", is_nullable => 1 },
   "category_modified_on",
   {
-    data_type => "timestamp",
+    accessor => "modified_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "category_parent",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "parent",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 1,
+  },
   "category_ping_urls",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "ping_urls", data_type => "mediumtext", is_nullable => 1 },
 );
 
 =head1 PRIMARY KEY
@@ -195,8 +210,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("category_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:WeD/hrMZ7ECgfTpXDu45jQ
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:45
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:AmMmR9A0R4rG2M9qovxvgQ
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

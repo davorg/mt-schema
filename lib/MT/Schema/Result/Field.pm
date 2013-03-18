@@ -37,125 +37,116 @@ __PACKAGE__->table("mt_field");
 
 =head2 field_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 field_basename
 
+  accessor: 'basename'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 field_blog_id
 
+  accessor: 'blog_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 field_default
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'default'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 field_description
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'description'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 field_name
 
+  accessor: 'name'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [255,0]
+  size: 255
 
 =head2 field_obj_type
 
+  accessor: 'obj_type'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [50,0]
+  size: 50
 
 =head2 field_options
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'options'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 field_required
 
+  accessor: 'required'
   data_type: 'tinyint'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 field_tag
 
+  accessor: 'tag'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [255,0]
+  size: 255
 
 =head2 field_type
 
+  accessor: 'type'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [50,0]
+  size: 50
 
 =cut
 
 __PACKAGE__->add_columns(
   "field_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "id",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "field_basename",
   {
+    accessor => "basename",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 1,
-    size => [255, 0],
+    size => 255,
   },
   "field_blog_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "blog_id", data_type => "integer", is_nullable => 1 },
   "field_default",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "default", data_type => "mediumtext", is_nullable => 1 },
   "field_description",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "description", data_type => "mediumtext", is_nullable => 1 },
   "field_name",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 0,
-    size => [255, 0],
-  },
+  { accessor => "name", data_type => "varchar", is_nullable => 0, size => 255 },
   "field_obj_type",
   {
+    accessor => "obj_type",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 0,
-    size => [50, 0],
+    size => 50,
   },
   "field_options",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "options", data_type => "mediumtext", is_nullable => 1 },
   "field_required",
-  { data_type => "tinyint", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "required", data_type => "tinyint", is_nullable => 1 },
   "field_tag",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 0,
-    size => [255, 0],
-  },
+  { accessor => "tag", data_type => "varchar", is_nullable => 0, size => 255 },
   "field_type",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 0,
-    size => [50, 0],
-  },
+  { accessor => "type", data_type => "varchar", is_nullable => 0, size => 50 },
 );
 
 =head1 PRIMARY KEY
@@ -171,8 +162,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("field_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:vVf387sYBB47JKDmseon7g
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:45
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:JnDuBFGT/LQ6BQ70SQ2deA
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

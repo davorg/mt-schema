@@ -37,155 +37,169 @@ __PACKAGE__->table("mt_trackback");
 
 =head2 trackback_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 trackback_blog_id
 
+  accessor: 'blog_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 trackback_category_id
 
+  accessor: 'category_id'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 0
 
 =head2 trackback_created_by
 
+  accessor: 'created_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 trackback_created_on
 
-  data_type: 'timestamp'
+  accessor: 'created_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 trackback_description
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'description'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 trackback_entry_id
 
+  accessor: 'entry_id'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 0
 
 =head2 trackback_is_disabled
 
+  accessor: 'is_disabled'
   data_type: 'tinyint'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 1
 
 =head2 trackback_modified_by
 
+  accessor: 'modified_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 trackback_modified_on
 
-  data_type: 'timestamp'
+  accessor: 'modified_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 trackback_passphrase
 
+  accessor: 'passphrase'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [30,0]
+  size: 30
 
 =head2 trackback_rss_file
 
+  accessor: 'rss_file'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 trackback_title
 
+  accessor: 'title'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 trackback_url
 
+  accessor: 'url'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =cut
 
 __PACKAGE__->add_columns(
   "trackback_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "id",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "trackback_blog_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "blog_id", data_type => "integer", is_nullable => 0 },
   "trackback_category_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor      => "category_id",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 0,
+  },
   "trackback_created_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "created_by", data_type => "integer", is_nullable => 1 },
   "trackback_created_on",
   {
-    data_type => "timestamp",
+    accessor => "created_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "trackback_description",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "description", data_type => "mediumtext", is_nullable => 1 },
   "trackback_entry_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor      => "entry_id",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 0,
+  },
   "trackback_is_disabled",
-  { data_type => "tinyint", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "is_disabled",
+    data_type     => "tinyint",
+    default_value => 0,
+    is_nullable   => 1,
+  },
   "trackback_modified_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "modified_by", data_type => "integer", is_nullable => 1 },
   "trackback_modified_on",
   {
-    data_type => "timestamp",
+    accessor => "modified_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "trackback_passphrase",
   {
+    accessor => "passphrase",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 1,
-    size => [30, 0],
+    size => 30,
   },
   "trackback_rss_file",
   {
+    accessor => "rss_file",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 1,
-    size => [255, 0],
+    size => 255,
   },
   "trackback_title",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 1,
-    size => [255, 0],
-  },
+  { accessor => "title", data_type => "varchar", is_nullable => 1, size => 255 },
   "trackback_url",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 1,
-    size => [255, 0],
-  },
+  { accessor => "url", data_type => "varchar", is_nullable => 1, size => 255 },
 );
 
 =head1 PRIMARY KEY
@@ -201,8 +215,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("trackback_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:MaVsuEibfLKT3KUv/mZJmQ
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:46
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:siehcazPK/T6927UZ275bg
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

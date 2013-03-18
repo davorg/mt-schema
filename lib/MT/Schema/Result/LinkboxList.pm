@@ -37,81 +37,82 @@ __PACKAGE__->table("mt_linkbox_list");
 
 =head2 linkbox_list_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 linkbox_list_blog_id
 
+  accessor: 'blog_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 linkbox_list_created_by
 
+  accessor: 'created_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 linkbox_list_created_on
 
-  data_type: 'timestamp'
+  accessor: 'created_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 linkbox_list_modified_by
 
+  accessor: 'modified_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 linkbox_list_modified_on
 
-  data_type: 'timestamp'
+  accessor: 'modified_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 linkbox_list_name
 
+  accessor: 'name'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [255,0]
+  size: 255
 
 =cut
 
 __PACKAGE__->add_columns(
   "linkbox_list_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "id",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "linkbox_list_blog_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "blog_id", data_type => "integer", is_nullable => 0 },
   "linkbox_list_created_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "created_by", data_type => "integer", is_nullable => 1 },
   "linkbox_list_created_on",
   {
-    data_type => "timestamp",
+    accessor => "created_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "linkbox_list_modified_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "modified_by", data_type => "integer", is_nullable => 1 },
   "linkbox_list_modified_on",
   {
-    data_type => "timestamp",
+    accessor => "modified_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "linkbox_list_name",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 0,
-    size => [255, 0],
-  },
+  { accessor => "name", data_type => "varchar", is_nullable => 0, size => 255 },
 );
 
 =head1 PRIMARY KEY
@@ -127,8 +128,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("linkbox_list_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:KH0WjLzE3Y33flVHNZBy8g
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:45
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:IvqnjKAEYiQiRCaaVh/3Vw
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

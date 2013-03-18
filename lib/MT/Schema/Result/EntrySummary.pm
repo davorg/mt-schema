@@ -37,89 +37,79 @@ __PACKAGE__->table("mt_entry_summary");
 
 =head2 entry_summary_entry_id
 
+  accessor: 'entry_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 entry_summary_type
 
+  accessor: 'type'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [255,0]
+  size: 255
 
 =head2 entry_summary_class
 
+  accessor: 'class'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [75,0]
+  size: 75
 
 =head2 entry_summary_vchar_idx
 
+  accessor: 'vchar_idx'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 entry_summary_vinteger_idx
 
+  accessor: 'vinteger_idx'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 entry_summary_vblob
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'vblob'
+  data_type: 'mediumblob'
   is_nullable: 1
 
 =head2 entry_summary_vclob
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'vclob'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 entry_summary_expired
 
+  accessor: 'expired'
   data_type: 'smallint'
-  is_auto_increment: 1
   is_nullable: 1
 
 =cut
 
 __PACKAGE__->add_columns(
   "entry_summary_entry_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "entry_id", data_type => "integer", is_nullable => 0 },
   "entry_summary_type",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 0,
-    size => [255, 0],
-  },
+  { accessor => "type", data_type => "varchar", is_nullable => 0, size => 255 },
   "entry_summary_class",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 0,
-    size => [75, 0],
-  },
+  { accessor => "class", data_type => "varchar", is_nullable => 0, size => 75 },
   "entry_summary_vchar_idx",
   {
+    accessor => "vchar_idx",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 1,
-    size => [255, 0],
+    size => 255,
   },
   "entry_summary_vinteger_idx",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "vinteger_idx", data_type => "integer", is_nullable => 1 },
   "entry_summary_vblob",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "vblob", data_type => "mediumblob", is_nullable => 1 },
   "entry_summary_vclob",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "vclob", data_type => "mediumtext", is_nullable => 1 },
   "entry_summary_expired",
-  { data_type => "smallint", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "expired", data_type => "smallint", is_nullable => 1 },
 );
 
 =head1 PRIMARY KEY
@@ -137,8 +127,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("entry_summary_entry_id", "entry_summary_type");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:ws8M4cNXJG8jHC3ZTu8fVQ
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:45
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:z1UmjMXU6dAVLR2wnkFZqA
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

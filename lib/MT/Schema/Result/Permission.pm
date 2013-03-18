@@ -37,134 +37,158 @@ __PACKAGE__->table("mt_permission");
 
 =head2 permission_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 permission_author_id
 
+  accessor: 'author_id'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 0
 
 =head2 permission_blog_id
 
+  accessor: 'blog_id'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 0
 
 =head2 permission_blog_prefs
 
+  accessor: 'blog_prefs'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 permission_created_by
 
+  accessor: 'created_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 permission_created_on
 
-  data_type: 'timestamp'
+  accessor: 'created_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 permission_entry_prefs
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'entry_prefs'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 permission_modified_by
 
+  accessor: 'modified_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 permission_modified_on
 
-  data_type: 'timestamp'
+  accessor: 'modified_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 permission_permissions
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'permissions'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 permission_restrictions
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'restrictions'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 permission_role_mask
 
+  accessor: 'role_mask'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 1
 
 =head2 permission_template_prefs
 
+  accessor: 'template_prefs'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =cut
 
 __PACKAGE__->add_columns(
   "permission_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "id",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "permission_author_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor      => "author_id",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 0,
+  },
   "permission_blog_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor      => "blog_id",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 0,
+  },
   "permission_blog_prefs",
   {
+    accessor => "blog_prefs",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 1,
-    size => [255, 0],
+    size => 255,
   },
   "permission_created_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "created_by", data_type => "integer", is_nullable => 1 },
   "permission_created_on",
   {
-    data_type => "timestamp",
+    accessor => "created_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "permission_entry_prefs",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "entry_prefs", data_type => "mediumtext", is_nullable => 1 },
   "permission_modified_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "modified_by", data_type => "integer", is_nullable => 1 },
   "permission_modified_on",
   {
-    data_type => "timestamp",
+    accessor => "modified_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "permission_permissions",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "permissions", data_type => "mediumtext", is_nullable => 1 },
   "permission_restrictions",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "restrictions", data_type => "mediumtext", is_nullable => 1 },
   "permission_role_mask",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "role_mask",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 1,
+  },
   "permission_template_prefs",
   {
+    accessor => "template_prefs",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 1,
-    size => [255, 0],
+    size => 255,
   },
 );
 
@@ -181,8 +205,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("permission_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:Qg4+R+GHmtO8zW2SaGTDwA
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:45
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:VKz58BkaRwVEZxECeLrfwA
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

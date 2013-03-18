@@ -37,47 +37,47 @@ __PACKAGE__->table("mt_ts_exitstatus");
 
 =head2 ts_exitstatus_jobid
 
+  accessor: 'jobid'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 ts_exitstatus_completion_time
 
+  accessor: 'completion_time'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 ts_exitstatus_delete_after
 
+  accessor: 'delete_after'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 ts_exitstatus_funcid
 
+  accessor: 'funcid'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 ts_exitstatus_status
 
+  accessor: 'status'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =cut
 
 __PACKAGE__->add_columns(
   "ts_exitstatus_jobid",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "jobid", data_type => "integer", is_nullable => 0 },
   "ts_exitstatus_completion_time",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "completion_time", data_type => "integer", is_nullable => 1 },
   "ts_exitstatus_delete_after",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "delete_after", data_type => "integer", is_nullable => 1 },
   "ts_exitstatus_funcid",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "funcid", data_type => "integer", is_nullable => 0 },
   "ts_exitstatus_status",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "status", data_type => "integer", is_nullable => 1 },
 );
 
 =head1 PRIMARY KEY
@@ -93,8 +93,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("ts_exitstatus_jobid");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:WACxuhDjdbt1ipLUwGe9Sw
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:46
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:hNgKfhrZVYeEFlMCYVu7VA
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

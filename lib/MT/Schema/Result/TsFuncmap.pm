@@ -37,28 +37,34 @@ __PACKAGE__->table("mt_ts_funcmap");
 
 =head2 ts_funcmap_funcid
 
+  accessor: 'funcid'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 ts_funcmap_funcname
 
+  accessor: 'funcname'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [255,0]
+  size: 255
 
 =cut
 
 __PACKAGE__->add_columns(
   "ts_funcmap_funcid",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "funcid",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "ts_funcmap_funcname",
   {
+    accessor => "funcname",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 0,
-    size => [255, 0],
+    size => 255,
   },
 );
 
@@ -89,8 +95,8 @@ __PACKAGE__->set_primary_key("ts_funcmap_funcid");
 __PACKAGE__->add_unique_constraint("mt_ts_funcmap_funcname", ["ts_funcmap_funcname"]);
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:lCHq9QzDqOgbQX225z5Csg
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:46
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:VJubBaP3TYfayBao13VvHQ
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

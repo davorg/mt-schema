@@ -37,129 +37,136 @@ __PACKAGE__->table("mt_role");
 
 =head2 role_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 role_created_by
 
+  accessor: 'created_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 role_created_on
 
-  data_type: 'timestamp'
+  accessor: 'created_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 role_description
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'description'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 role_is_system
 
+  accessor: 'is_system'
   data_type: 'tinyint'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 1
 
 =head2 role_modified_by
 
+  accessor: 'modified_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 role_modified_on
 
-  data_type: 'timestamp'
+  accessor: 'modified_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 role_name
 
+  accessor: 'name'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [255,0]
+  size: 255
 
 =head2 role_permissions
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'permissions'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 role_role_mask
 
+  accessor: 'role_mask'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 role_role_mask2
 
+  accessor: 'role_mask2'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 role_role_mask3
 
+  accessor: 'role_mask3'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 role_role_mask4
 
+  accessor: 'role_mask4'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =cut
 
 __PACKAGE__->add_columns(
   "role_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "id",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "role_created_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "created_by", data_type => "integer", is_nullable => 1 },
   "role_created_on",
   {
-    data_type => "timestamp",
+    accessor => "created_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "role_description",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "description", data_type => "mediumtext", is_nullable => 1 },
   "role_is_system",
-  { data_type => "tinyint", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "is_system",
+    data_type     => "tinyint",
+    default_value => 0,
+    is_nullable   => 1,
+  },
   "role_modified_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "modified_by", data_type => "integer", is_nullable => 1 },
   "role_modified_on",
   {
-    data_type => "timestamp",
+    accessor => "modified_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "role_name",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 0,
-    size => [255, 0],
-  },
+  { accessor => "name", data_type => "varchar", is_nullable => 0, size => 255 },
   "role_permissions",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "permissions", data_type => "mediumtext", is_nullable => 1 },
   "role_role_mask",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "role_mask", data_type => "integer", is_nullable => 1 },
   "role_role_mask2",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "role_mask2", data_type => "integer", is_nullable => 1 },
   "role_role_mask3",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "role_mask3", data_type => "integer", is_nullable => 1 },
   "role_role_mask4",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "role_mask4", data_type => "integer", is_nullable => 1 },
 );
 
 =head1 PRIMARY KEY
@@ -175,8 +182,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("role_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:GM75gy1zXmHiVNFZQGZOfA
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:46
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:raUTi7f17dn6RT2WnwieyA
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

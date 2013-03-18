@@ -37,159 +37,163 @@ __PACKAGE__->table("mt_reblog_sourcefeed");
 
 =head2 reblog_sourcefeed_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 reblog_sourcefeed_blog_id
 
+  accessor: 'blog_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 reblog_sourcefeed_category_id
 
+  accessor: 'category_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 reblog_sourcefeed_consecutive_failures
 
+  accessor: 'consecutive_failures'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 reblog_sourcefeed_created_by
 
+  accessor: 'created_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 reblog_sourcefeed_created_on
 
-  data_type: 'timestamp'
+  accessor: 'created_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 reblog_sourcefeed_epoch_last_fired
 
+  accessor: 'epoch_last_fired'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 reblog_sourcefeed_epoch_last_read
 
+  accessor: 'epoch_last_read'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 reblog_sourcefeed_has_error
 
+  accessor: 'has_error'
   data_type: 'tinyint'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 reblog_sourcefeed_is_active
 
+  accessor: 'is_active'
   data_type: 'tinyint'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 reblog_sourcefeed_is_excerpted
 
+  accessor: 'is_excerpted'
   data_type: 'tinyint'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 reblog_sourcefeed_label
 
+  accessor: 'label'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 reblog_sourcefeed_modified_by
 
+  accessor: 'modified_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 reblog_sourcefeed_modified_on
 
-  data_type: 'timestamp'
+  accessor: 'modified_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 reblog_sourcefeed_total_failures
 
+  accessor: 'total_failures'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 reblog_sourcefeed_url
 
+  accessor: 'url'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [255,0]
+  size: 255
 
 =cut
 
 __PACKAGE__->add_columns(
   "reblog_sourcefeed_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "id",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "reblog_sourcefeed_blog_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "blog_id", data_type => "integer", is_nullable => 0 },
   "reblog_sourcefeed_category_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "category_id", data_type => "integer", is_nullable => 1 },
   "reblog_sourcefeed_consecutive_failures",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor    => "consecutive_failures",
+    data_type   => "integer",
+    is_nullable => 1,
+  },
   "reblog_sourcefeed_created_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "created_by", data_type => "integer", is_nullable => 1 },
   "reblog_sourcefeed_created_on",
   {
-    data_type => "timestamp",
+    accessor => "created_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "reblog_sourcefeed_epoch_last_fired",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
-  "reblog_sourcefeed_epoch_last_read",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
-  "reblog_sourcefeed_has_error",
-  { data_type => "tinyint", is_auto_increment => 1, is_nullable => 0 },
-  "reblog_sourcefeed_is_active",
-  { data_type => "tinyint", is_auto_increment => 1, is_nullable => 0 },
-  "reblog_sourcefeed_is_excerpted",
-  { data_type => "tinyint", is_auto_increment => 1, is_nullable => 0 },
-  "reblog_sourcefeed_label",
   {
-    data_type => "varchar",
-    is_auto_increment => 1,
+    accessor    => "epoch_last_fired",
+    data_type   => "integer",
     is_nullable => 1,
-    size => [255, 0],
   },
+  "reblog_sourcefeed_epoch_last_read",
+  { accessor => "epoch_last_read", data_type => "integer", is_nullable => 1 },
+  "reblog_sourcefeed_has_error",
+  { accessor => "has_error", data_type => "tinyint", is_nullable => 0 },
+  "reblog_sourcefeed_is_active",
+  { accessor => "is_active", data_type => "tinyint", is_nullable => 0 },
+  "reblog_sourcefeed_is_excerpted",
+  { accessor => "is_excerpted", data_type => "tinyint", is_nullable => 0 },
+  "reblog_sourcefeed_label",
+  { accessor => "label", data_type => "varchar", is_nullable => 1, size => 255 },
   "reblog_sourcefeed_modified_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "modified_by", data_type => "integer", is_nullable => 1 },
   "reblog_sourcefeed_modified_on",
   {
-    data_type => "timestamp",
+    accessor => "modified_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "reblog_sourcefeed_total_failures",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "total_failures", data_type => "integer", is_nullable => 1 },
   "reblog_sourcefeed_url",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 0,
-    size => [255, 0],
-  },
+  { accessor => "url", data_type => "varchar", is_nullable => 0, size => 255 },
 );
 
 =head1 PRIMARY KEY
@@ -205,8 +209,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("reblog_sourcefeed_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:EOgzPZ//Ak0LaooLZHMHBg
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:46
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:hJaWDKxDyrOcHvsWaj1+9g
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

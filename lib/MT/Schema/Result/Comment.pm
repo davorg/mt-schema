@@ -37,201 +37,195 @@ __PACKAGE__->table("mt_comment");
 
 =head2 comment_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 comment_author
 
+  accessor: 'author'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [100,0]
+  size: 100
 
 =head2 comment_blog_id
 
+  accessor: 'blog_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 comment_commenter_id
 
+  accessor: 'commenter_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 comment_created_by
 
+  accessor: 'created_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 comment_created_on
 
-  data_type: 'timestamp'
+  accessor: 'created_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 comment_email
 
+  accessor: 'email'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [127,0]
+  size: 127
 
 =head2 comment_entry_id
 
+  accessor: 'entry_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 comment_ip
 
+  accessor: 'ip'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [50,0]
+  size: 50
 
 =head2 comment_junk_log
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'junk_log'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 comment_junk_score
 
+  accessor: 'junk_score'
   data_type: 'float'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 comment_junk_status
 
+  accessor: 'junk_status'
   data_type: 'smallint'
-  is_auto_increment: 1
+  default_value: 1
   is_nullable: 1
 
 =head2 comment_last_moved_on
 
-  data_type: 'timestamp'
+  accessor: 'last_moved_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
+  default_value: '2000-01-01 00:00:00'
   is_nullable: 0
 
 =head2 comment_modified_by
 
+  accessor: 'modified_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 comment_modified_on
 
-  data_type: 'timestamp'
+  accessor: 'modified_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 comment_parent_id
 
+  accessor: 'parent_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 comment_text
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'text'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 comment_url
 
+  accessor: 'url'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 comment_visible
 
+  accessor: 'visible'
   data_type: 'tinyint'
-  is_auto_increment: 1
   is_nullable: 1
 
 =cut
 
 __PACKAGE__->add_columns(
   "comment_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
-  "comment_author",
   {
-    data_type => "varchar",
+    accessor          => "id",
+    data_type         => "integer",
     is_auto_increment => 1,
-    is_nullable => 1,
-    size => [100, 0],
+    is_nullable       => 0,
   },
+  "comment_author",
+  { accessor => "author", data_type => "varchar", is_nullable => 1, size => 100 },
   "comment_blog_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "blog_id", data_type => "integer", is_nullable => 0 },
   "comment_commenter_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "commenter_id", data_type => "integer", is_nullable => 1 },
   "comment_created_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "created_by", data_type => "integer", is_nullable => 1 },
   "comment_created_on",
   {
-    data_type => "timestamp",
+    accessor => "created_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "comment_email",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 1,
-    size => [127, 0],
-  },
+  { accessor => "email", data_type => "varchar", is_nullable => 1, size => 127 },
   "comment_entry_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "entry_id", data_type => "integer", is_nullable => 0 },
   "comment_ip",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 1,
-    size => [50, 0],
-  },
+  { accessor => "ip", data_type => "varchar", is_nullable => 1, size => 50 },
   "comment_junk_log",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "junk_log", data_type => "mediumtext", is_nullable => 1 },
   "comment_junk_score",
-  { data_type => "float", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "junk_score", data_type => "float", is_nullable => 1 },
   "comment_junk_status",
-  { data_type => "smallint", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "junk_status",
+    data_type     => "smallint",
+    default_value => 1,
+    is_nullable   => 1,
+  },
   "comment_last_moved_on",
   {
-    data_type => "timestamp",
+    accessor => "last_moved_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
+    default_value => "2000-01-01 00:00:00",
     is_nullable => 0,
   },
   "comment_modified_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "modified_by", data_type => "integer", is_nullable => 1 },
   "comment_modified_on",
   {
-    data_type => "timestamp",
+    accessor => "modified_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "comment_parent_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "parent_id", data_type => "integer", is_nullable => 1 },
   "comment_text",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "text", data_type => "mediumtext", is_nullable => 1 },
   "comment_url",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 1,
-    size => [255, 0],
-  },
+  { accessor => "url", data_type => "varchar", is_nullable => 1, size => 255 },
   "comment_visible",
-  { data_type => "tinyint", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "visible", data_type => "tinyint", is_nullable => 1 },
 );
 
 =head1 PRIMARY KEY
@@ -247,8 +241,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("comment_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:hEfbKv9ypnvjz/aKMIBwvA
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:45
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:mu2F/om2jnNRs/Fh7Wrg7g
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

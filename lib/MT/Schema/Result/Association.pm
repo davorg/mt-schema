@@ -37,99 +37,129 @@ __PACKAGE__->table("mt_association");
 
 =head2 association_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 association_author_id
 
+  accessor: 'author_id'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 1
 
 =head2 association_blog_id
 
+  accessor: 'blog_id'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 1
 
 =head2 association_created_by
 
+  accessor: 'created_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 association_created_on
 
-  data_type: 'timestamp'
+  accessor: 'created_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 association_group_id
 
+  accessor: 'group_id'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 1
 
 =head2 association_modified_by
 
+  accessor: 'modified_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 association_modified_on
 
-  data_type: 'timestamp'
+  accessor: 'modified_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 association_role_id
 
+  accessor: 'role_id'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 1
 
 =head2 association_type
 
+  accessor: 'type'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =cut
 
 __PACKAGE__->add_columns(
   "association_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "id",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "association_author_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "author_id",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 1,
+  },
   "association_blog_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "blog_id",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 1,
+  },
   "association_created_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "created_by", data_type => "integer", is_nullable => 1 },
   "association_created_on",
   {
-    data_type => "timestamp",
+    accessor => "created_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "association_group_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "group_id",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 1,
+  },
   "association_modified_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "modified_by", data_type => "integer", is_nullable => 1 },
   "association_modified_on",
   {
-    data_type => "timestamp",
+    accessor => "modified_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "association_role_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "role_id",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 1,
+  },
   "association_type",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "type", data_type => "integer", is_nullable => 0 },
 );
 
 =head1 PRIMARY KEY
@@ -145,8 +175,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("association_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:RbCkMHL8cFs57o3FOIXIGQ
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:45
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:sOV4zoYqv68T/KCUS6ohjg
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

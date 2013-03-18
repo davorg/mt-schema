@@ -37,133 +37,123 @@ __PACKAGE__->table("mt_template_meta");
 
 =head2 template_meta_template_id
 
+  accessor: 'template_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 template_meta_type
 
+  accessor: 'type'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [75,0]
+  size: 75
 
 =head2 template_meta_vchar
 
+  accessor: 'vchar'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 template_meta_vchar_idx
 
+  accessor: 'vchar_idx'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 template_meta_vdatetime
 
-  data_type: 'timestamp'
+  accessor: 'vdatetime'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 template_meta_vdatetime_idx
 
-  data_type: 'timestamp'
+  accessor: 'vdatetime_idx'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 template_meta_vinteger
 
+  accessor: 'vinteger'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 template_meta_vinteger_idx
 
+  accessor: 'vinteger_idx'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 template_meta_vfloat
 
+  accessor: 'vfloat'
   data_type: 'float'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 template_meta_vfloat_idx
 
+  accessor: 'vfloat_idx'
   data_type: 'float'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 template_meta_vblob
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'vblob'
+  data_type: 'mediumblob'
   is_nullable: 1
 
 =head2 template_meta_vclob
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'vclob'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =cut
 
 __PACKAGE__->add_columns(
   "template_meta_template_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "template_id", data_type => "integer", is_nullable => 0 },
   "template_meta_type",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 0,
-    size => [75, 0],
-  },
+  { accessor => "type", data_type => "varchar", is_nullable => 0, size => 75 },
   "template_meta_vchar",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 1,
-    size => [255, 0],
-  },
+  { accessor => "vchar", data_type => "varchar", is_nullable => 1, size => 255 },
   "template_meta_vchar_idx",
   {
+    accessor => "vchar_idx",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 1,
-    size => [255, 0],
+    size => 255,
   },
   "template_meta_vdatetime",
   {
-    data_type => "timestamp",
+    accessor => "vdatetime",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "template_meta_vdatetime_idx",
   {
-    data_type => "timestamp",
+    accessor => "vdatetime_idx",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "template_meta_vinteger",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "vinteger", data_type => "integer", is_nullable => 1 },
   "template_meta_vinteger_idx",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "vinteger_idx", data_type => "integer", is_nullable => 1 },
   "template_meta_vfloat",
-  { data_type => "float", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "vfloat", data_type => "float", is_nullable => 1 },
   "template_meta_vfloat_idx",
-  { data_type => "float", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "vfloat_idx", data_type => "float", is_nullable => 1 },
   "template_meta_vblob",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "vblob", data_type => "mediumblob", is_nullable => 1 },
   "template_meta_vclob",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "vclob", data_type => "mediumtext", is_nullable => 1 },
 );
 
 =head1 PRIMARY KEY
@@ -181,8 +171,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("template_meta_template_id", "template_meta_type");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:rvp/JlQwVBsEitCtPzoClg
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:46
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:e0W0jN+GwIQr28LDYWXCDg
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

@@ -37,51 +37,47 @@ __PACKAGE__->table("mt_plugindata");
 
 =head2 plugindata_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 plugindata_data
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'data'
+  data_type: 'mediumblob'
   is_nullable: 1
 
 =head2 plugindata_key
 
+  accessor: 'key'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [255,0]
+  size: 255
 
 =head2 plugindata_plugin
 
+  accessor: 'plugin'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [50,0]
+  size: 50
 
 =cut
 
 __PACKAGE__->add_columns(
   "plugindata_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "id",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "plugindata_data",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "data", data_type => "mediumblob", is_nullable => 1 },
   "plugindata_key",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 0,
-    size => [255, 0],
-  },
+  { accessor => "key", data_type => "varchar", is_nullable => 0, size => 255 },
   "plugindata_plugin",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 0,
-    size => [50, 0],
-  },
+  { accessor => "plugin", data_type => "varchar", is_nullable => 0, size => 50 },
 );
 
 =head1 PRIMARY KEY
@@ -97,8 +93,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("plugindata_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:XDuyEWbXcrZ5e63D2wxWkQ
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:45
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:jsY/Xqh+QTzBktY7KrImsA
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

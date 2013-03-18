@@ -37,125 +37,138 @@ __PACKAGE__->table("mt_objectscore");
 
 =head2 objectscore_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 objectscore_author_id
 
+  accessor: 'author_id'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 1
 
 =head2 objectscore_created_by
 
+  accessor: 'created_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 objectscore_created_on
 
-  data_type: 'timestamp'
+  accessor: 'created_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 objectscore_ip
 
+  accessor: 'ip'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [50,0]
+  size: 50
 
 =head2 objectscore_modified_by
 
+  accessor: 'modified_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 objectscore_modified_on
 
-  data_type: 'timestamp'
+  accessor: 'modified_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 objectscore_namespace
 
+  accessor: 'namespace'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [100,0]
+  size: 100
 
 =head2 objectscore_object_ds
 
+  accessor: 'object_ds'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [50,0]
+  size: 50
 
 =head2 objectscore_object_id
 
+  accessor: 'object_id'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 1
 
 =head2 objectscore_score
 
+  accessor: 'score'
   data_type: 'float'
-  is_auto_increment: 1
   is_nullable: 1
 
 =cut
 
 __PACKAGE__->add_columns(
   "objectscore_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "id",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "objectscore_author_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "author_id",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 1,
+  },
   "objectscore_created_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "created_by", data_type => "integer", is_nullable => 1 },
   "objectscore_created_on",
   {
-    data_type => "timestamp",
+    accessor => "created_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "objectscore_ip",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 1,
-    size => [50, 0],
-  },
+  { accessor => "ip", data_type => "varchar", is_nullable => 1, size => 50 },
   "objectscore_modified_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "modified_by", data_type => "integer", is_nullable => 1 },
   "objectscore_modified_on",
   {
-    data_type => "timestamp",
+    accessor => "modified_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "objectscore_namespace",
   {
+    accessor => "namespace",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 0,
-    size => [100, 0],
+    size => 100,
   },
   "objectscore_object_ds",
   {
+    accessor => "object_ds",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 0,
-    size => [50, 0],
+    size => 50,
   },
   "objectscore_object_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "object_id",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 1,
+  },
   "objectscore_score",
-  { data_type => "float", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "score", data_type => "float", is_nullable => 1 },
 );
 
 =head1 PRIMARY KEY
@@ -171,8 +184,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("objectscore_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:DeJSOfV/nKgJBiIyrPIY9w
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:45
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:TPtjCHu7Ogm5xZMAGpgakw
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

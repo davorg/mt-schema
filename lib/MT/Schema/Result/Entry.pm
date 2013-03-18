@@ -37,279 +37,298 @@ __PACKAGE__->table("mt_entry");
 
 =head2 entry_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 entry_allow_comments
 
+  accessor: 'allow_comments'
   data_type: 'tinyint'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 entry_allow_pings
 
+  accessor: 'allow_pings'
   data_type: 'tinyint'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 entry_atom_id
 
+  accessor: 'atom_id'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 entry_author_id
 
+  accessor: 'author_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 entry_authored_on
 
-  data_type: 'timestamp'
+  accessor: 'authored_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 entry_basename
 
+  accessor: 'basename'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 entry_blog_id
 
+  accessor: 'blog_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 entry_category_id
 
+  accessor: 'category_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 entry_class
 
+  accessor: 'class'
   data_type: 'varchar'
-  is_auto_increment: 1
+  default_value: 'entry'
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 entry_comment_count
 
+  accessor: 'comment_count'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 1
 
 =head2 entry_convert_breaks
 
+  accessor: 'convert_breaks'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [30,0]
+  size: 30
 
 =head2 entry_created_by
 
+  accessor: 'created_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 entry_created_on
 
-  data_type: 'timestamp'
+  accessor: 'created_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 entry_excerpt
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'excerpt'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 entry_keywords
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'keywords'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 entry_modified_by
 
+  accessor: 'modified_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 entry_modified_on
 
-  data_type: 'timestamp'
+  accessor: 'modified_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 entry_ping_count
 
+  accessor: 'ping_count'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 1
 
 =head2 entry_pinged_urls
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'pinged_urls'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 entry_status
 
+  accessor: 'status'
   data_type: 'smallint'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 entry_tangent_cache
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'tangent_cache'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 entry_template_id
 
+  accessor: 'template_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 entry_text
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'text'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 entry_text_more
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'text_more'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 entry_title
 
+  accessor: 'title'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 entry_to_ping_urls
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'to_ping_urls'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 entry_week_number
 
+  accessor: 'week_number'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =cut
 
 __PACKAGE__->add_columns(
   "entry_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "id",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "entry_allow_comments",
-  { data_type => "tinyint", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "allow_comments", data_type => "tinyint", is_nullable => 1 },
   "entry_allow_pings",
-  { data_type => "tinyint", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "allow_pings", data_type => "tinyint", is_nullable => 1 },
   "entry_atom_id",
   {
+    accessor => "atom_id",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 1,
-    size => [255, 0],
+    size => 255,
   },
   "entry_author_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "author_id", data_type => "integer", is_nullable => 0 },
   "entry_authored_on",
   {
-    data_type => "timestamp",
+    accessor => "authored_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "entry_basename",
   {
+    accessor => "basename",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 1,
-    size => [255, 0],
+    size => 255,
   },
   "entry_blog_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "blog_id", data_type => "integer", is_nullable => 0 },
   "entry_category_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "category_id", data_type => "integer", is_nullable => 1 },
   "entry_class",
   {
+    accessor => "class",
     data_type => "varchar",
-    is_auto_increment => 1,
+    default_value => "entry",
     is_nullable => 1,
-    size => [255, 0],
+    size => 255,
   },
   "entry_comment_count",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "comment_count",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 1,
+  },
   "entry_convert_breaks",
   {
+    accessor => "convert_breaks",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 1,
-    size => [30, 0],
+    size => 30,
   },
   "entry_created_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "created_by", data_type => "integer", is_nullable => 1 },
   "entry_created_on",
   {
-    data_type => "timestamp",
+    accessor => "created_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "entry_excerpt",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "excerpt", data_type => "mediumtext", is_nullable => 1 },
   "entry_keywords",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "keywords", data_type => "mediumtext", is_nullable => 1 },
   "entry_modified_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "modified_by", data_type => "integer", is_nullable => 1 },
   "entry_modified_on",
   {
-    data_type => "timestamp",
+    accessor => "modified_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "entry_ping_count",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
-  "entry_pinged_urls",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
-  "entry_status",
-  { data_type => "smallint", is_auto_increment => 1, is_nullable => 0 },
-  "entry_tangent_cache",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
-  "entry_template_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
-  "entry_text",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
-  "entry_text_more",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
-  "entry_title",
   {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 1,
-    size => [255, 0],
+    accessor      => "ping_count",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 1,
   },
+  "entry_pinged_urls",
+  { accessor => "pinged_urls", data_type => "mediumtext", is_nullable => 1 },
+  "entry_status",
+  { accessor => "status", data_type => "smallint", is_nullable => 0 },
+  "entry_tangent_cache",
+  {
+    accessor    => "tangent_cache",
+    data_type   => "mediumtext",
+    is_nullable => 1,
+  },
+  "entry_template_id",
+  { accessor => "template_id", data_type => "integer", is_nullable => 1 },
+  "entry_text",
+  { accessor => "text", data_type => "mediumtext", is_nullable => 1 },
+  "entry_text_more",
+  { accessor => "text_more", data_type => "mediumtext", is_nullable => 1 },
+  "entry_title",
+  { accessor => "title", data_type => "varchar", is_nullable => 1, size => 255 },
   "entry_to_ping_urls",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "to_ping_urls", data_type => "mediumtext", is_nullable => 1 },
   "entry_week_number",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "week_number", data_type => "integer", is_nullable => 1 },
 );
 
 =head1 PRIMARY KEY
@@ -325,9 +344,15 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("entry_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:c1Bn8W2nl8Chf6SzGRzw/g
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:45
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:SntWQNbBOo//S4sA5JhCFQ
 
+
+__PACKAGE__->belongs_to(
+  'blog',
+  'MT::Schema::Result::Blog',
+  'entry_blog_id',
+);
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;

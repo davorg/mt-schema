@@ -37,23 +37,29 @@ __PACKAGE__->table("mt_config");
 
 =head2 config_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 config_data
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'data'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =cut
 
 __PACKAGE__->add_columns(
   "config_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "id",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "config_data",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "data", data_type => "mediumtext", is_nullable => 1 },
 );
 
 =head1 PRIMARY KEY
@@ -69,8 +75,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("config_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:wv7kDu8hjhlQXvl38MTeCA
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:45
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:0M3Vl5QJ/6KwF4j6dpCHlQ
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

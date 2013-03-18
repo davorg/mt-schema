@@ -37,50 +37,56 @@ __PACKAGE__->table("mt_ts_error");
 
 =head2 ts_error_error_time
 
+  accessor: 'error_time'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 ts_error_funcid
 
+  accessor: 'funcid'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 0
 
 =head2 ts_error_jobid
 
+  accessor: 'jobid'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 ts_error_message
 
+  accessor: 'message'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [255,0]
+  size: 255
 
 =cut
 
 __PACKAGE__->add_columns(
   "ts_error_error_time",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "error_time", data_type => "integer", is_nullable => 0 },
   "ts_error_funcid",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor      => "funcid",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 0,
+  },
   "ts_error_jobid",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "jobid", data_type => "integer", is_nullable => 0 },
   "ts_error_message",
   {
+    accessor => "message",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 0,
-    size => [255, 0],
+    size => 255,
   },
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:wDqRlHJLTzRIwVcX2Fi0FA
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:46
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:c4rfwwMoAkHc82cDzf8LSg
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

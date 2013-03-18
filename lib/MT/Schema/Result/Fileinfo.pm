@@ -37,121 +37,122 @@ __PACKAGE__->table("mt_fileinfo");
 
 =head2 fileinfo_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 fileinfo_archive_type
 
+  accessor: 'archive_type'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 fileinfo_author_id
 
+  accessor: 'author_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 fileinfo_blog_id
 
+  accessor: 'blog_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 fileinfo_category_id
 
+  accessor: 'category_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 fileinfo_entry_id
 
+  accessor: 'entry_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 fileinfo_file_path
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'file_path'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 fileinfo_startdate
 
+  accessor: 'startdate'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [80,0]
+  size: 80
 
 =head2 fileinfo_template_id
 
+  accessor: 'template_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 fileinfo_templatemap_id
 
+  accessor: 'templatemap_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 fileinfo_url
 
+  accessor: 'url'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 fileinfo_virtual
 
+  accessor: 'virtual'
   data_type: 'tinyint'
-  is_auto_increment: 1
   is_nullable: 1
 
 =cut
 
 __PACKAGE__->add_columns(
   "fileinfo_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "id",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "fileinfo_archive_type",
   {
+    accessor => "archive_type",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 1,
-    size => [255, 0],
+    size => 255,
   },
   "fileinfo_author_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "author_id", data_type => "integer", is_nullable => 1 },
   "fileinfo_blog_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "blog_id", data_type => "integer", is_nullable => 0 },
   "fileinfo_category_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "category_id", data_type => "integer", is_nullable => 1 },
   "fileinfo_entry_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "entry_id", data_type => "integer", is_nullable => 1 },
   "fileinfo_file_path",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "file_path", data_type => "mediumtext", is_nullable => 1 },
   "fileinfo_startdate",
   {
+    accessor => "startdate",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 1,
-    size => [80, 0],
+    size => 80,
   },
   "fileinfo_template_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "template_id", data_type => "integer", is_nullable => 1 },
   "fileinfo_templatemap_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "templatemap_id", data_type => "integer", is_nullable => 1 },
   "fileinfo_url",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 1,
-    size => [255, 0],
-  },
+  { accessor => "url", data_type => "varchar", is_nullable => 1, size => 255 },
   "fileinfo_virtual",
-  { data_type => "tinyint", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "virtual", data_type => "tinyint", is_nullable => 1 },
 );
 
 =head1 PRIMARY KEY
@@ -167,8 +168,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("fileinfo_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:7O77NHm6bEFjHCsx6+jhNw
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:45
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:7DpSVGQcDjBpWtHZ7FiF9A
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

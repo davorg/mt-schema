@@ -37,83 +37,95 @@ __PACKAGE__->table("mt_templatemap");
 
 =head2 templatemap_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 templatemap_archive_type
 
+  accessor: 'archive_type'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 0
-  size: [25,0]
+  size: 25
 
 =head2 templatemap_blog_id
 
+  accessor: 'blog_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 templatemap_build_interval
 
+  accessor: 'build_interval'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 templatemap_build_type
 
+  accessor: 'build_type'
   data_type: 'smallint'
-  is_auto_increment: 1
+  default_value: 1
   is_nullable: 1
 
 =head2 templatemap_file_template
 
+  accessor: 'file_template'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 templatemap_is_preferred
 
+  accessor: 'is_preferred'
   data_type: 'tinyint'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 templatemap_template_id
 
+  accessor: 'template_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =cut
 
 __PACKAGE__->add_columns(
   "templatemap_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "id",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "templatemap_archive_type",
   {
+    accessor => "archive_type",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 0,
-    size => [25, 0],
+    size => 25,
   },
   "templatemap_blog_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "blog_id", data_type => "integer", is_nullable => 0 },
   "templatemap_build_interval",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "build_interval", data_type => "integer", is_nullable => 1 },
   "templatemap_build_type",
-  { data_type => "smallint", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "build_type",
+    data_type     => "smallint",
+    default_value => 1,
+    is_nullable   => 1,
+  },
   "templatemap_file_template",
   {
+    accessor => "file_template",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 1,
-    size => [255, 0],
+    size => 255,
   },
   "templatemap_is_preferred",
-  { data_type => "tinyint", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "is_preferred", data_type => "tinyint", is_nullable => 1 },
   "templatemap_template_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "template_id", data_type => "integer", is_nullable => 0 },
 );
 
 =head1 PRIMARY KEY
@@ -129,8 +141,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("templatemap_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:Awsm6WNof92KBukltegZdA
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:46
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:zqJXo2iOP7VCxr7V7hSKlw
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

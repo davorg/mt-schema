@@ -37,145 +37,166 @@ __PACKAGE__->table("mt_log");
 
 =head2 log_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 log_author_id
 
+  accessor: 'author_id'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 1
 
 =head2 log_blog_id
 
+  accessor: 'blog_id'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 0
   is_nullable: 1
 
 =head2 log_category
 
+  accessor: 'category'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 log_class
 
+  accessor: 'class'
   data_type: 'varchar'
-  is_auto_increment: 1
+  default_value: 'system'
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 log_created_by
 
+  accessor: 'created_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 log_created_on
 
-  data_type: 'timestamp'
+  accessor: 'created_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 log_ip
 
+  accessor: 'ip'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [50,0]
+  size: 50
 
 =head2 log_level
 
+  accessor: 'level'
   data_type: 'integer'
-  is_auto_increment: 1
+  default_value: 1
   is_nullable: 1
 
 =head2 log_message
 
-  data_type: 'blob'
-  is_auto_increment: 1
+  accessor: 'message'
+  data_type: 'mediumtext'
   is_nullable: 1
 
 =head2 log_metadata
 
+  accessor: 'metadata'
   data_type: 'varchar'
-  is_auto_increment: 1
   is_nullable: 1
-  size: [255,0]
+  size: 255
 
 =head2 log_modified_by
 
+  accessor: 'modified_by'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 1
 
 =head2 log_modified_on
 
-  data_type: 'timestamp'
+  accessor: 'modified_on'
+  data_type: 'datetime'
   datetime_undef_if_invalid: 1
-  is_auto_increment: 1
   is_nullable: 1
 
 =cut
 
 __PACKAGE__->add_columns(
   "log_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "id",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "log_author_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "author_id",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 1,
+  },
   "log_blog_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "blog_id",
+    data_type     => "integer",
+    default_value => 0,
+    is_nullable   => 1,
+  },
   "log_category",
   {
+    accessor => "category",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 1,
-    size => [255, 0],
+    size => 255,
   },
   "log_class",
   {
+    accessor => "class",
     data_type => "varchar",
-    is_auto_increment => 1,
+    default_value => "system",
     is_nullable => 1,
-    size => [255, 0],
+    size => 255,
   },
   "log_created_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "created_by", data_type => "integer", is_nullable => 1 },
   "log_created_on",
   {
-    data_type => "timestamp",
+    accessor => "created_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
   "log_ip",
-  {
-    data_type => "varchar",
-    is_auto_increment => 1,
-    is_nullable => 1,
-    size => [50, 0],
-  },
+  { accessor => "ip", data_type => "varchar", is_nullable => 1, size => 50 },
   "log_level",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  {
+    accessor      => "level",
+    data_type     => "integer",
+    default_value => 1,
+    is_nullable   => 1,
+  },
   "log_message",
-  { data_type => "blob", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "message", data_type => "mediumtext", is_nullable => 1 },
   "log_metadata",
   {
+    accessor => "metadata",
     data_type => "varchar",
-    is_auto_increment => 1,
     is_nullable => 1,
-    size => [255, 0],
+    size => 255,
   },
   "log_modified_by",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 1 },
+  { accessor => "modified_by", data_type => "integer", is_nullable => 1 },
   "log_modified_on",
   {
-    data_type => "timestamp",
+    accessor => "modified_on",
+    data_type => "datetime",
     datetime_undef_if_invalid => 1,
-    is_auto_increment => 1,
     is_nullable => 1,
   },
 );
@@ -193,8 +214,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("log_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:qJCCaE6r/MylHnRq7vDJ+Q
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:45
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:G3UcbtrLDS+TRYq0pbxoaQ
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

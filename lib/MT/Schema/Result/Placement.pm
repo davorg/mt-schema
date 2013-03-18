@@ -37,47 +37,53 @@ __PACKAGE__->table("mt_placement");
 
 =head2 placement_id
 
+  accessor: 'id'
   data_type: 'integer'
   is_auto_increment: 1
   is_nullable: 0
 
 =head2 placement_blog_id
 
+  accessor: 'blog_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 placement_category_id
 
+  accessor: 'category_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 placement_entry_id
 
+  accessor: 'entry_id'
   data_type: 'integer'
-  is_auto_increment: 1
   is_nullable: 0
 
 =head2 placement_is_primary
 
+  accessor: 'is_primary'
   data_type: 'tinyint'
-  is_auto_increment: 1
   is_nullable: 0
 
 =cut
 
 __PACKAGE__->add_columns(
   "placement_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  {
+    accessor          => "id",
+    data_type         => "integer",
+    is_auto_increment => 1,
+    is_nullable       => 0,
+  },
   "placement_blog_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "blog_id", data_type => "integer", is_nullable => 0 },
   "placement_category_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "category_id", data_type => "integer", is_nullable => 0 },
   "placement_entry_id",
-  { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "entry_id", data_type => "integer", is_nullable => 0 },
   "placement_is_primary",
-  { data_type => "tinyint", is_auto_increment => 1, is_nullable => 0 },
+  { accessor => "is_primary", data_type => "tinyint", is_nullable => 0 },
 );
 
 =head1 PRIMARY KEY
@@ -93,8 +99,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("placement_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-03-17 13:03:53
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:bVxnKu42CnUxU1LMV9ZIvA
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-18 21:02:45
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:pXEfx5U5b0WE7lDOpKZ3kA
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
