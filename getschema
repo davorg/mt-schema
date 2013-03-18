@@ -16,16 +16,27 @@ make_schema_at(
     #  debug => 1,
       dump_directory => './lib',
       components => [q{InflateColumn::DateTime}],
-      moniker_map => \&translate,
+      moniker_map => \&translate_table,
+      col_accessor_map => \&translate_column,
      },
     [ "dbi:mysql:dbname=$ENV{DB_NAME}",$ENV{DB_USER}, $ENV{DB_PASS}, ],
 );
 
-sub translate {
+sub translate_table {
   my $default = $_[1];
   print "Changing $default into ";
   $default =~ s/^Mt//;
   say $default;
+
+  return $default;
+}
+
+sub translate_column {
+  my $default = $_[1];
+  my $table_name = $_[2]->{table_name}->name;
+  my $prefix = $table_name =~ s/^mt_//r;
+  $default =~ s/^${prefix}_//;
+  say "$table_name.$default";
 
   return $default;
 }
