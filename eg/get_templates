@@ -12,6 +12,10 @@ my $sch = MT::Schema->connect("dbi:mysql:database=$ENV{DB_NAME}",
 
 my $tmpl_rs = $sch->resultset('Template');
 
+# Oh yes, MT has special "Global" templates that aren't associated with 
+# a blog. They have a blog_id of 0, but no blog exists with that id.
+# The MT authors have no time for your old-fashioned concepts like
+# "referential integrity".
 foreach ($tmpl_rs->search({ template_blog_id => 0 })) {
   my $name = $_->name;
   $name =~ s/\W/_/g;
