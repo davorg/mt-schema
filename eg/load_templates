@@ -1,0 +1,48 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use 5.010;
+
+use MT::Schema;
+
+my $sch = MT::Schema->connect("dbi:mysql:database=$ENV{DB_NAME}",
+                              $ENV{DB_USER}, $ENV{DB_PASS})
+  or die;
+
+die "Must name at least one template set name (GLOBAL or CLONEMASTER)\n"
+  unless @ARGV;
+
+foreach (@ARGV) {
+  load_templates($_);
+}
+
+sub load_templates {
+  my $blog_name = shift;
+
+  my $template_rs;
+  my $blog;
+  if ($blog_name eq 'GLOBAL') {
+    $template_rs = $sch->resultset('Template')->search({
+      template_blog_id => 0,
+    });
+  } else {
+    ($blog) = $sch->resultset('Blog')->search({
+      blog_name => $blog_name,
+    });
+    die "Can't find blog named '$blog_name'\n" unless $blog;
+    $template_rs = $blog->templates;
+  }
+
+  # $template_rs->delete;
+  
+  foreach (<$blog_name/*/*.tmpl>) {
+    say $_;
+    my (undef, $type, $name) = split /\//;
+    $name =~ s/\.tmpl$//;
+    $template_rs->find_or_create({
+      template_name => $name,
+      template_type => $type,
+    });
+  }
+}

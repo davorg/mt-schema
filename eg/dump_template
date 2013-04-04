@@ -1,0 +1,49 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use 5.010;
+
+use MT::Schema;
+use File::Path qw[make_path];
+
+my $sch = MT::Schema->connect("dbi:mysql:database=$ENV{DB_NAME}",
+                              $ENV{DB_USER}, $ENV{DB_PASS})
+  or die;
+
+my $tmpl_rs = $sch->resultset('Template');
+
+# Oh yes, MT has special "Global" templates that aren't associated with 
+# a blog. They have a blog_id of 0, but no blog exists with that id.
+# The MT authors have no time for your old-fashioned concepts like
+# "referential integrity".
+foreach ($tmpl_rs->search({ template_blog_id => 0 })) {
+  get_template($_);
+}
+
+my $blog_name = 'CLONEMASTER';
+my ($clonemaster) = $sch->resultset('Blog')->search({
+  blog_name => $blog_name,
+});
+
+die "Clonemaster not found\n" unless $clonemaster;
+
+foreach ($clonemaster->templates) {
+  get_template($_, $blog_name);
+}
+
+sub get_template {
+  my ($template, $blog_name) =@_;
+   
+  $blog_name //= 'GLOBAL';
+
+  my $name = $template->name;
+  # $name =~ s/\W/_/g;
+  say $template->type, '/', "$name.tmpl";
+
+  make_path "$blog_name/" . $template->type;
+  open my $t_fh, '>', "$blog_name/" . $template->type . "/$name.tmpl"
+    or die "$name: $!";
+
+  print $t_fh $template->text;
+}
